@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    Hello World
+    <router-view />
   </div>
 </template>
 
@@ -17,5 +17,7 @@ export default {
 </script>
 
 <style>
-
+  #app {
+    font-size: 14px;
+  }
 </style>
