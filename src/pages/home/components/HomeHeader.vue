@@ -12,45 +12,46 @@
 </template>
 
 <script>
+import Icon from "../../components/Icon";
 export default {
-  name: 'HomeHeader',
-  props: {
-    msg: String
+  name: "HomeHeader",
+  components: {
+    Icon
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/assets/styles/variables.scss";
-  .homeHeader {
-    display: flex;
-    height: 46px;
-    background: $bgColor;
-    color: #fff;
-    align-items: center;
-  }
-  .return {
-    padding: 16px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .search {
-    flex: 1;
-    color: #666;
-    padding-left: 16px;
-    background: #fff;
-    height: 32px;
-    line-height: 32px;
-    border-radius: 4px;
-  }
-  .search input {
-    outline: none;
-    border: none;
-    margin-right: 6px;
-    width: calc(100% - 28px);
-  }
-  .cities {
-    padding: 0 16px;
-    cursor: pointer;
-  }
+@import "~@/assets/styles/variables.scss";
+.homeHeader {
+  display: flex;
+  height: 46px;
+  background: $bgColor;
+  color: #fff;
+  align-items: center;
+}
+.return {
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.search {
+  flex: 1;
+  color: #666;
+  padding-left: 16px;
+  background: #fff;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+}
+.search input {
+  outline: none;
+  border: none;
+  margin-right: 6px;
+  width: calc(100% - 28px);
+}
+.cities {
+  padding: 0 16px;
+  cursor: pointer;
+}
 </style>
