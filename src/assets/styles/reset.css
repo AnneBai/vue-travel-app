@@ -50,3 +50,6 @@ a {
 	text-decoration: none;
 	color: rgb(91, 91, 190);
 }
+button {
+	border-style: none;
+}
