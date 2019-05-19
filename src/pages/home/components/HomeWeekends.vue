@@ -1,25 +1,31 @@
 <template>
 <div class="container">    
-    <div class="title">热 门 推 荐</div>
-    <ul>
-        <li class="item" v-for="post of posts" :key="post.id">
-            <img class="item-img" :src="post.imgUrl" alt=""/>
-            <div class="item-info">
-                <p class="item-title">{{post.title}}</p>
-                <div class="item-detail">{{post.content}}</div>
-                <div class="detail-btn-cont">
-                    <span class="read-num">{{`${post.readNum}次阅读`}}</span>
-                    <button class="detail-btn">查看详情</button>
+    <div class="title">周 末 会 玩</div>
+    <div class="columns">
+        <ul class="column" v-for="(posts, index) of columns" :key="index">
+            <li class="item" v-for="post of posts" :key="post.id">
+                <img class="item-img" :src="post.imgUrl" alt=""/>
+                <div class="item-info">
+                    <p class="item-title">{{post.title}}</p>
+                    <div class="item-detail">{{post.content}}</div>
+                    <div class="detail-btn-cont">
+                        <span class="read-num">{{`${post.readNum}次阅读`}}</span>
+                        <span class="favor-num"><Icon className="#icon-aixin" style="vertical-align: top;"/>{{355}}</span>
+                    </div>
                 </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
 </div>
 </template>
 
 <script>
+import Icon from "@/pages/components/Icon";
 export default {
-    name: "HomeRecommends",
+    name: "HomeWeekends",
+    components: {
+        Icon,
+    },
     data() {
         return {
             posts: [
@@ -44,7 +50,17 @@ export default {
                     readNum: 10086,
                     content: "有一天，我看了四十三次日落",
                 }
-            ]
+            ],
+        }
+    },
+    computed: {
+        columns() {
+            return this.posts.reduce((accu, cur, i) => {
+                const idx = i % 2;
+                accu[idx] = accu[idx] || [];
+                accu[idx].push(cur);
+                return accu;
+            }, [])
         }
     }
 }
@@ -60,21 +76,28 @@ export default {
     color: #999;
     font-weight: bold;
 }
-.item {
+.columns {
     padding: 10px;
     display: flex;
-    height: 90px;
-    border-bottom: 1px solid #eee;
+    .column {
+        flex: 1;
+        min-width: 0;
+        &:first-child {
+            margin-right: 8px;
+        }
+    }
+}
+.item {
+    width: 100%;
+    border: 1px solid #eee;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    overflow: hidden;
     .item-img {
-        flex: none;
-        height: 90px;
+        width: 100%;
     }
     .item-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        padding-left: 10px;
-        min-width: 0; // 否则默认最小宽度按内容实际宽度，会溢出父容器
+        padding: 5px;
     }
     .item-title {
         @include ellipsis;
@@ -101,11 +124,10 @@ export default {
         font-size: 12px;
         color: #ccc;
     }
-    .detail-btn {
+    .favor-num {
+        color: rgb(204, 135, 135);
         padding: 4px 10px;
-        background-color: $bgColor;
-        color: #fff;
-        border-radius: 4px;
+        font-size: 12px;
     }
 }
 </style>
