@@ -1,19 +1,20 @@
 <template>
     <div class="home-container">
-        <HomeHeader />
-        <HomeSwiper />
-        <HomeIcons />
-        <HomeRecommends />
-        <HomeWeekends />
+        <HomeHeader :city="city"/>
+        <HomeSwiper :swiperList="swiperList"/>
+        <HomeIcons :iconList="iconList"/>
+        <HomeRecommends :recommendList="recommendList"/>
+        <HomeWeekends :weekendsList="weekendsList"/>
     </div>
 </template>
 
 <script>
-import HomeHeader from "./components/HomeHeader"
-import HomeSwiper from "./components/HomeSwiper"
-import HomeIcons from "./components/HomeIcons"
-import HomeRecommends from "./components/HomeRecommends"
-import HomeWeekends from "./components/HomeWeekends"
+import HomeHeader from "./components/HomeHeader";
+import HomeSwiper from "./components/HomeSwiper";
+import HomeIcons from "./components/HomeIcons";
+import HomeRecommends from "./components/HomeRecommends";
+import HomeWeekends from "./components/HomeWeekends";
+import axios from "axios";
 
 export default {
     name: "Home",
@@ -24,6 +25,27 @@ export default {
         HomeRecommends,
         HomeWeekends,
     },
+    data() {
+        return {
+            city: "",
+            iconList: [],
+            recommendList: [],
+            swiperList: [],
+            weekendsList: [],
+        }
+    },
+    mounted() {
+        this.getHomeData();
+    },
+    methods: {
+        async getHomeData() {
+            const {data} = await axios.get('/api/index.json');
+            this.dealWithData(data);
+        },
+        dealWithData(data) {
+            Object.assign(this, data);
+        }
+    }
 }
 </script>
 

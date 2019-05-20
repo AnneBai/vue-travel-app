@@ -5,7 +5,7 @@
       <input type="text" id="searchInput" placeholder="请输入关键字进行搜索"/>
       <span class="iconfont">&#xe651;</span>
     </div>
-    <span class="cities">城市
+    <span class="cities">{{city}}
       <span class="iconfont">&#xe65e;</span>
     </span>
   </div>
@@ -15,8 +15,8 @@
 import Icon from "../../components/Icon";
 export default {
   name: "HomeHeader",
-  components: {
-    Icon
+  props: {
+    city: String,
   }
 };
 </script>

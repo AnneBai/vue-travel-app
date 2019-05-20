@@ -15,6 +15,9 @@
 <script>
 export default {
     name: "HomeSwiper",
+    props: {
+        swiperList: Array,
+    },
     data() {
         return {
             swiperOption: {
@@ -22,28 +25,6 @@ export default {
                 loop: true,
                 pagination: ".swiper-pagination"
             },
-            swiperList: [
-                {
-                    id: "01",
-                    imgUrl: "https://n1-q.mafengwo.net/s13/M00/3A/DB/wKgEaVzZbqqAXVlYAAoObFUgWgI49.jpeg"
-                },
-                {
-                    id: "02",
-                    imgUrl: "https://n2-q.mafengwo.net/s13/M00/4D/99/wKgEaVzWeoWAUU_bAAs2IhV-Ei449.jpeg"
-                },
-                {
-                    id: "03",
-                    imgUrl: "https://b2-q.mafengwo.net/s13/M00/4B/E5/wKgEaVzWeXaAVxyQAAkiLzvilDQ16.jpeg"
-                },
-                {
-                    id: "04",
-                    imgUrl: "https://b2-q.mafengwo.net/s13/M00/16/D5/wKgEaVzejMeAYGO1AAkInHKxNrg01.jpeg"
-                },
-                {
-                    id: "05",
-                    imgUrl: "https://b1-q.mafengwo.net/s13/M00/38/AC/wKgEaVzdMLuAGhVtAAs_VKSuQWI43.jpeg",
-                }
-            ]
         }
     },
 }

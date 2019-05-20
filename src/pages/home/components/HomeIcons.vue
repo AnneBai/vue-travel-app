@@ -16,55 +16,11 @@
 import Icon from "../../components/Icon";
 export default {
     name: "HomeIcons",
+    props: {
+        iconList: Array,
+    },
     data() {
         return {
-            icons: [
-                {
-                    id: "01",
-                    name: "机票",
-                    content: "#icon-dingjipiao",
-                },
-                {
-                    id: "02",
-                    name: "攻略攻略攻略攻略攻略",
-                    content: "#icon-gonglve",
-                },
-                {
-                    id: "03",
-                    name: "酒店",
-                    content: "#icon-jiudian",
-                },
-                {
-                    id: "04",
-                    name: "攻略",
-                    content: "#icon-gonglve",
-                },
-                {
-                    id: "05",
-                    name: "门票",
-                    content: "#icon-tubiaozhizuomoban--copy",
-                },
-                {
-                    id: "06",
-                    name: "热门景点",
-                    content: "#icon-dinghuochepiao",
-                },
-                {
-                    id: "07",
-                    name: "攻略",
-                    content: "#icon-gonglve",
-                },
-                {
-                    id: "08",
-                    name: "火车票",
-                    content: "#icon-dinghuochepiao",
-                },
-                {
-                    id: "09",
-                    name: "热门景点",
-                    content: "#icon-dinghuochepiao",
-                },
-            ],
             swiperOption: {
                 autoplay: 0,
                 loop: false,
@@ -74,7 +30,7 @@ export default {
     },
     computed: {
         pages() {
-            return this.icons.reduce((accu, cur, i) => {
+            return this.iconList.reduce((accu, cur, i) => {
                 const idx = Math.floor(i / 8);
                 accu[idx] = accu[idx] || [];
                 accu[idx].push(cur);
