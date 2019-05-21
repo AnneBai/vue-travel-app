@@ -3,3 +3,10 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+@mixin header {
+    height: 46px;
+    line-height: 46px;
+    background: $bgColor;
+    color: #fff;
+}

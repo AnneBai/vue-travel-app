@@ -5,14 +5,15 @@
       <input type="text" id="searchInput" placeholder="请输入关键字进行搜索"/>
       <span class="iconfont">&#xe651;</span>
     </div>
-    <span class="cities">{{city}}
-      <span class="iconfont">&#xe65e;</span>
-    </span>
+    <router-link to="/city" >
+      <span class="cities">{{city}}
+        <span class="iconfont">&#xe65e;</span>
+      </span>
+    </router-link>
   </div>
 </template>
 
 <script>
-import Icon from "../../components/Icon";
 export default {
   name: "HomeHeader",
   props: {
@@ -23,12 +24,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "~@/assets/styles/variables.scss";
+@import "~@/assets/styles/mixins.scss";
 .homeHeader {
-  display: flex;
-  height: 46px;
-  background: $bgColor;
-  color: #fff;
-  align-items: center;
+    @include header;
+    display: flex;
+    align-items: center;
 }
 .return {
   padding: 16px;
