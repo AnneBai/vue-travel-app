@@ -10,50 +10,14 @@
             <div class="area">
                 <div class="title">热门城市</div>
                 <div class="flex-list">
-                    <button class="btn">北京</button>
-                    <button class="btn">上海</button>
-                    <button class="btn">上海</button>
-                    <button class="btn">天津</button>
-                    <button class="btn">深圳</button>
-                    <button class="btn">广东</button>
-                    
+                    <button class="btn" v-for="city of hotCities" :key="city.id">{{city.name}}</button>
                 </div>
             </div>
-            <div class="area">
-                <div class="title">A</div>
-                <div class="list">
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                </div>
-            </div>
-            <div class="area">
-                <div class="title">A</div>
-                <div class="list">
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                </div>
-            </div>
-            <div class="area">
-                <div class="title">A</div>
-                <div class="list">
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                    <p class="item">北京</p>
-                </div>
+            <div class="area" v-for="(list, letter) in cities" :key="letter">
+                <div class="title" :id="letter">{{letter}}</div>
+                <ul class="list">
+                    <li class="item" v-for="city of list" :key="city.id">{{city.name}}</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -63,6 +27,10 @@
 import BScroll from 'better-scroll'
 export default {
     name: "CityList",
+    props: {
+        hotCities: Array,
+        cities: Object,
+    },
     mounted() {
         this.$nextTick(() => {
             this.scroll = new BScroll(this.$refs.wrapper, {})

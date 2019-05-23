@@ -1,17 +1,17 @@
 <template>
     <ul class="alphabet">
-        <li class="item" v-for="letter of alphabet" :key="letter">{{letter}}</li>
+        <li class="item" v-for="letter of alphabet" :key="letter">
+            <a :href="'#' + letter">{{letter}}</a>
+        </li>
     </ul>
 </template>
 
 <script>
 export default {
     name: "CityAlphabet",
-    data() {
-        return {
-            alphabet: Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),
-        }
-    }
+    props: {
+        alphabet: Array,
+    },
 }
 </script>
 
