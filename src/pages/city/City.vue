@@ -2,8 +2,8 @@
 <div>
     <CityHeader />
     <CitySearch />
-    <CityList :hotCities="hotCities" :cities="cities"/>
-    <CityAlphabet :alphabet="alphabet"/>
+    <CityList :hotCities="hotCities" :cities="cities" :letter="letter"/>
+    <CityAlphabet :alphabet="alphabet" @change="changeLetter"/>
 </div>
 </template>
 
@@ -26,6 +26,7 @@ export default {
         return {
             hotCities: [],
             cities: {},
+            letter: "",
         }
     },
     computed: {
@@ -44,6 +45,9 @@ export default {
                 this.hotCities = hotCities;
                 this.cities = cities;
             }
+        },
+        changeLetter(letter) {
+            this.letter = letter;
         }
     }
 }

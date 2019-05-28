@@ -10,13 +10,35 @@
             <div class="area">
                 <div class="title">热门城市</div>
                 <div class="flex-list">
-                    <button class="btn" v-for="city of hotCities" :key="city.id">{{city.name}}</button>
+                    <button
+                        class="btn"
+                        v-for="city of hotCities"
+                        :key="city.id"
+                    >
+                        {{city.name}}
+                    </button>
                 </div>
             </div>
-            <div class="area" v-for="(list, letter) in cities" :key="letter">
-                <div class="title" :id="letter">{{letter}}</div>
+            <div
+                class="area"
+                v-for="(list, letter) in cities"
+                :key="letter"
+                :ref="letter"
+            >
+                <div
+                    class="title"
+                    :id="letter"
+                >
+                    {{letter}}
+                </div>
                 <ul class="list">
-                    <li class="item" v-for="city of list" :key="city.id">{{city.name}}</li>
+                    <li
+                        class="item"
+                        v-for="city of list"
+                        :key="city.id"
+                    >
+                        {{city.name}}
+                    </li>
                 </ul>
             </div>
         </div>
@@ -30,11 +52,19 @@ export default {
     props: {
         hotCities: Array,
         cities: Object,
+        letter: String,
     },
     mounted() {
         this.$nextTick(() => {
             this.scroll = new BScroll(this.$refs.wrapper, {})
         })
+    },
+    watch: {
+        letter() {
+            if (this.letter) {
+                this.scroll.scrollToElement(this.$refs[this.letter][0]);
+            }
+        }
     }
 }
 </script>
