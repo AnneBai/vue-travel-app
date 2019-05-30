@@ -53,3 +53,6 @@ a {
 button {
 	border-style: none;
 }
+div, ul {
+	box-sizing: border-box;
+}

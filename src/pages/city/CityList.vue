@@ -4,7 +4,7 @@
             <div class="area">
                 <div class="title">当前城市</div>
                 <div class="flex-list">
-                    <button class="btn active">北京</button>
+                    <button class="btn active">{{this.current.name}}</button>
                 </div>
             </div>
             <div class="area">
@@ -50,6 +50,7 @@ import BScroll from 'better-scroll'
 export default {
     name: "CityList",
     props: {
+        current: Object,
         hotCities: Array,
         cities: Object,
         letter: String,

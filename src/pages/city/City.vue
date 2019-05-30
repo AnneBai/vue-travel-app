@@ -1,8 +1,8 @@
 <template>
 <div>
     <CityHeader />
-    <CitySearch />
-    <CityList :hotCities="hotCities" :cities="cities" :letter="letter"/>
+    <CitySearch :cities="cities" @change="changeHotCity"/>
+    <CityList :hotCities="hotCities" :cities="cities" :letter="letter" :current="current"/>
     <CityAlphabet :alphabet="alphabet" @change="changeLetter"/>
 </div>
 </template>
@@ -26,6 +26,7 @@ export default {
         return {
             hotCities: [],
             cities: {},
+            current: {name: "杭州"},
             letter: "",
         }
     },
@@ -48,7 +49,10 @@ export default {
         },
         changeLetter(letter) {
             this.letter = letter;
-        }
+        },
+        changeHotCity(city) {
+            this.current = city;
+        },
     }
 }
 </script>

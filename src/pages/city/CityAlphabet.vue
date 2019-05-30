@@ -28,14 +28,8 @@ export default {
             timer: null,
         }
     },
-    // watched: {
-    //     alphabet() {
-    //         this.startY = (window.innerHeight - this.$refs['alphabet'].clientHeight) / 2 + 41;
-    //     }
-    // },
     updated() {
         this.startY = (window.innerHeight - this.$refs['alphabet'].clientHeight) / 2 + 41;
-        console.log(this.startY);
     },
     methods: {
         handleTouchStart(e) {

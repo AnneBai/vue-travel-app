@@ -21,6 +21,7 @@ export default {
     @include header;
     position: relative;
     text-align: center;
+    z-index: 2;
 }
 .return {
     position: absolute;
