@@ -6,7 +6,7 @@
       <span class="iconfont">&#xe651;</span>
     </div>
     <router-link to="/city" >
-      <span class="cities">{{city}}
+      <span class="cities">{{city.name}}
         <span class="iconfont">&#xe65e;</span>
       </span>
     </router-link>
@@ -17,7 +17,7 @@
 export default {
   name: "HomeHeader",
   props: {
-    city: String,
+    city: Object,
   }
 };
 </script>

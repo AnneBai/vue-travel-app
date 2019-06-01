@@ -1,10 +1,10 @@
 <template>
     <div class="area-wrapper" ref="wrapper">
         <div class="content">
-            <div class="area">
+            <div class="area" ref="current">
                 <div class="title">当前城市</div>
                 <div class="flex-list">
-                    <button class="btn active">{{this.current.name}}</button>
+                    <button class="btn active">{{this.city.name}}</button>
                 </div>
             </div>
             <div class="area">
@@ -14,6 +14,7 @@
                         class="btn"
                         v-for="city of hotCities"
                         :key="city.id"
+                        @click="clickCity(city)"
                     >
                         {{city.name}}
                     </button>
@@ -36,6 +37,7 @@
                         class="item"
                         v-for="city of list"
                         :key="city.id"
+                        @click="clickCity(city)"
                     >
                         {{city.name}}
                     </li>
@@ -47,24 +49,38 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapMutations, mapState } from 'vuex';
 export default {
     name: "CityList",
     props: {
-        current: Object,
         hotCities: Array,
         cities: Object,
         letter: String,
     },
     mounted() {
+        // 启动better-scroll
         this.$nextTick(() => {
             this.scroll = new BScroll(this.$refs.wrapper, {})
         })
     },
+    computed: {
+        ...mapState(["city"])
+    },
     watch: {
+        // 字母导航，触发滚动
         letter() {
             if (this.letter) {
                 this.scroll.scrollToElement(this.$refs[this.letter][0]);
             }
+        }
+    },
+    methods: {
+        ...mapMutations(["changeCity"]),
+        clickCity(city) {
+            this.$store.commit('changeCity', city);
+            // // 滚动至顶部--当前城市
+            // this.scroll.scrollToElement(this.$refs.current);
+            this.$router.push("/")
         }
     }
 }

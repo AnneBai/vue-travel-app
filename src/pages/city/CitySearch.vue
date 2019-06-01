@@ -19,6 +19,7 @@
 <script>
 import { clearTimeout, setTimeout } from 'timers';
 import BScroll from "better-scroll";
+import { mapMutations } from 'vuex';
 function filterCity(citiesObj) {
     return function (text) {
         const allCities = Object.values(citiesObj).flat();
@@ -63,10 +64,13 @@ export default {
     },
     methods: {
         clickCity(city) {
-            this.$emit("change", city);
+            this.$store.commit('changeCity', city);
             this.keyWords = "";
             this.filtered = [];
-        }
+            this.$router.push("/");
+        
+        },
+        ...mapMutations(["changeCity"]),
     }
 }
 </script>
