@@ -37,9 +37,6 @@ export default {
     computed: mapState([
         "city",
     ]),
-    mounted() {
-        this.getHomeData();
-    },
     methods: {
         async getHomeData() {
             const {data} = await axios.get('/api/index.json');
@@ -47,6 +44,16 @@ export default {
         },
         dealWithData(data) {
             Object.assign(this, data);
+        }
+    },
+    mounted() {
+        this.lastCity = this.city;
+        this.getHomeData();
+    },
+    activated() {
+        if (this.lastCity !== this.city) {
+            this.getHomeData();
+            this.lastCity = this.city;
         }
     }
 }
