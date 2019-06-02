@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import CityHeader from "./CityHeader";
-import CitySearch from "./CitySearch";
-import CityList from "./CityList";
-import CityAlphabet from "./CityAlphabet";
+import CityHeader from "./components/CityHeader";
+import CitySearch from "./components/CitySearch";
+import CityList from "./components/CityList";
+import CityAlphabet from "./components/CityAlphabet";
 import axios from "axios";
 
 export default {

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Icon from "../../components/Icon";
+import Icon from "components/Icon";
 export default {
     name: "HomeIcons",
     props: {
@@ -45,8 +45,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @import "~@/assets/styles/variables.scss"; 
-    @import "~@/assets/styles/mixins.scss"; 
+    @import "styles/variables.scss"; 
+    @import "styles/mixins.scss"; 
 
     $iconSize: 14vw;
     .swiper-container {

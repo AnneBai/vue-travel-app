@@ -32,7 +32,7 @@ export default {
         this.startY = (window.innerHeight - this.$refs['alphabet'].clientHeight) / 2 + 41;
     },
     methods: {
-        handleTouchStart(e) {
+        handleTouchStart() {
             this.touchStatus = true;
         },
         handleTouchMove(e) {
@@ -58,8 +58,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/styles/variables.scss";
-@import "~@/assets/styles/mixins.scss";
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 .alphabet {
     position: absolute;

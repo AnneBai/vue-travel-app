@@ -2,7 +2,13 @@
 <div class="container">    
     <div class="title">热 门 推 荐</div>
     <ul>
-        <li class="item" v-for="post of recommendList" :key="post.id">
+        <router-link
+            tag="li"
+            class="item"
+            v-for="post of recommendList"
+            :key="post.id"
+            :to="`/detail/${post.id}`"
+        >
             <img class="item-img" :src="post.imgUrl" alt=""/>
             <div class="item-info">
                 <p class="item-title">{{post.title}}</p>
@@ -12,7 +18,7 @@
                     <button class="detail-btn">查看详情</button>
                 </div>
             </div>
-        </li>
+        </router-link>
     </ul>
 </div>
 </template>
@@ -27,8 +33,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/styles/variables.scss";
-@import "~@/assets/styles/mixins.scss";
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
 .title {
     padding: 12px;
     text-align: center;

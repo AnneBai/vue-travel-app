@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     configureWebpack: {
         devServer: {
@@ -8,6 +10,13 @@ module.exports = {
                         '^/api': '/mock',
                     }
                 },
+            }
+        },
+        resolve: {
+            alias: {
+                "@": path.resolve(__dirname, "src"),
+                "styles": path.resolve(__dirname, "src/assets/styles"),
+                "components": path.resolve(__dirname, "src/pages/components"),
             }
         }
     }

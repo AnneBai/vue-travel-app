@@ -14,8 +14,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/styles/variables.scss";
-@import "~@/assets/styles/mixins.scss";
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 .header {
     @include header;

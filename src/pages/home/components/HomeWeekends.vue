@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Icon from "@/pages/components/Icon";
+import Icon from "components/Icon";
 export default {
     name: "HomeWeekends",
     props: {
@@ -43,8 +43,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/styles/variables.scss";
-@import "~@/assets/styles/mixins.scss";
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
 .title {
     padding: 12px;
     text-align: center;

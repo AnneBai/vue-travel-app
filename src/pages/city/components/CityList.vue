@@ -87,8 +87,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/styles/variables.scss";
-@import "~@/assets/styles/mixins.scss";
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
 
 $borderBottom: 1px solid #ccc;
 .area-wrapper {

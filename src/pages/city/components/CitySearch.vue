@@ -43,10 +43,13 @@ export default {
             if (this.timer != null) {
                 clearTimeout(this.timer);
             }
-            if (this.keyWords) {
-                const filterText = filterCity(this.cities);
-                this.filtered = filterText(this.keyWords);
-            }
+            this.timer = setTimeout(() => {
+                if (this.keyWords) {
+                    const filterText = filterCity(this.cities);
+                    this.filtered = filterText(this.keyWords);
+                }
+            }, 17);
+            
         }
     },
     computed: {
@@ -76,8 +79,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/assets/styles/variables.scss";
-@import "~@/assets/styles/mixins.scss";
+@import "styles/variables.scss";
+@import "styles/mixins.scss";
 $inputWidth: 85%;
 
 .search-cont {
