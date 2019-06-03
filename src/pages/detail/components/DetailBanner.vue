@@ -4,15 +4,15 @@
             class="banner"
             @click="clickBanner"
         >
-            <img class="banner-img" src="https://p3-q.mafengwo.net/s13/M00/0D/DD/wKgEaVyp7uGAXdeGAAyNcQ5FafQ55.jpeg" alt="">
+            <img class="banner-img" :src="bannerImg" :alt="title">
             <div class="banner-info">
-                <span class="banner-title">扬州的春天是花的天堂</span>
-                <span class="banner-number"><Icon className="#icon-zhaopiantubiao" />&nbsp;32</span>
+                <span class="banner-title">{{title}}</span>
+                <span class="banner-number"><Icon className="#icon-zhaopiantubiao" />&nbsp;{{galleryImgs.length}}</span>
             </div>
         </div>
         <Gallery
             v-show="showGallery"
-            :imgs="imgs"
+            :imgs="galleryImgs"
             @close="closeGallery"
         />
     </div>
@@ -28,13 +28,14 @@ export default {
         Icon,
         Gallery,
     },
+    props: {
+        title: String,
+        bannerImg: String,
+        galleryImgs: Array,
+    },
     data () {
         return {
             showGallery: false,
-            imgs: [
-                "https://p3-q.mafengwo.net/s13/M00/0D/DD/wKgEaVyp7uGAXdeGAAyNcQ5FafQ55.jpeg",
-                "https://b4-q.mafengwo.net/s11/M00/95/AC/wKgBEFpcReGARFs1AAGO3jkiTN816.jpeg",
-            ],
         }
     },
     methods: {

@@ -65,7 +65,7 @@ export default {
         width: 100%;
         overflow: hidden;
         height: 0;
-        padding-bottom: 75%;
+        padding-bottom: 100%;
 
     }
     .gallery-img {
@@ -74,7 +74,7 @@ export default {
     .swiper-pagination {
         position: absolute;
         width: 100%;
-        top: 50vh;
+        top: 65vh;
         color: #fff;
         font-size: 16px;
         text-align: center;

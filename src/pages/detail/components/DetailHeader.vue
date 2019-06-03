@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="header">
     <div class="header-abs" v-show="showAbs">
         <router-link to="/">
             <div class="return iconfont">&#xe660;</div>
@@ -42,12 +42,19 @@ export default {
             this.timer = null;
         }
     },
-    activated() {
+    mounted() {
         window.addEventListener("scroll", this.handleScroll);
     },
-    deactivated() {
+    beforeDestroy() {
         window.removeEventListener("scroll", this.handleScroll);
-    }
+    },
+    // keep-alive组件激活的情况下可用
+    // activated() {
+    //     window.addEventListener("scroll", this.handleScroll);
+    // },
+    // deactivated() {
+    //     window.removeEventListener("scroll", this.handleScroll);
+    // }
 }
 </script>
 
@@ -57,6 +64,7 @@ export default {
     text-align: center;
     font-size: 20px;
 }
+    
 .header-abs {
     height: 46px;
     line-height: 46px;
@@ -81,6 +89,7 @@ export default {
     width: 100%;
     display: flex;
     align-items: center;
+    z-index: 1;
     .return {
         width: 46px;
         color: #fff;

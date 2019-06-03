@@ -17,5 +17,8 @@ export default new VueRouter({
         name: "Detail",
         path: "/detail/:id",
         component: Detail,
-    }]
+    }],
+    scrollBehavior () {
+        return { x: 0, y: 0 }
+    },
 })
