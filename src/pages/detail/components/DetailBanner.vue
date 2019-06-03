@@ -10,11 +10,13 @@
                 <span class="banner-number"><Icon className="#icon-zhaopiantubiao" />&nbsp;{{galleryImgs.length}}</span>
             </div>
         </div>
-        <Gallery
-            v-show="showGallery"
-            :imgs="galleryImgs"
-            @close="closeGallery"
-        />
+        <FadeAnimation>
+            <Gallery
+                v-show="showGallery"
+                :imgs="galleryImgs"
+                @close="closeGallery"
+            />
+        </FadeAnimation>
     </div>
     
 </template>
@@ -22,11 +24,13 @@
 <script>
 import Icon from "components/Icon";
 import Gallery from "components/Gallery";
+import FadeAnimation from "components/FadeAnimation";
 export default {
     name: "DetailBanner",
     components: {
         Icon,
         Gallery,
+        FadeAnimation,
     },
     props: {
         title: String,
